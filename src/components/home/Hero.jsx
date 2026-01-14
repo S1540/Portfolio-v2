@@ -10,7 +10,7 @@ const Hero = () => {
   const roles = [
     "Frontend Developer",
     "MERN Stack Developer",
-    "AI Integration Specialist",
+    "AI Integration/Gen-AI ",
   ];
 
   const socialLinks = [
@@ -120,9 +120,9 @@ const Hero = () => {
             }`}
           >
             {/* Left Side */}
-            <div className="space-y-4">
-              <div className="inline-block px-5 py-2 bg-orange-600 rounded-full">
-                <span className="text-black text-xs font-bold tracking-wider">
+            <div className="space-y-4 text-white">
+              <div className="inline-block px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <span className="text-xs font-bold tracking-wider">
                   FULL STACK DEVELOPER
                 </span>
               </div>
@@ -158,7 +158,10 @@ const Hero = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button className="px-8 py-3 bg-orange-600 hover:bg-orange-500 text-white rounded-full font-bold flex items-center justify-center gap-2 transition-all hover:scale-101 active:scale-95 cursor-pointer">
+                <button
+                  className="px-8 py-3 bg-amber-600 backdrop-blur-sm border border-orange-600/30 hover:bg-orange-600/90 text-white rounded-full font-bold flex items-center justify-center gap-2 transition-all 
+                duration-500 hover:scale-101 active:scale-95 cursor-pointer"
+                >
                   VIEW WORK
                   <ArrowRight className="w-5 h-5" />
                 </button>

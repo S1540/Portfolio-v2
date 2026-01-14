@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import resume from "../../assets/Resume3.0.pdf";
+import { Download } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,13 +45,20 @@ const Header = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-amber-600 uppercase font-medium"
+                      ? "text-amber-600 uppercase font-bold tracking-wider transition-all duration-200 ease-in-out"
                       : "text-gray-200 uppercase font-medium hover:text-amber-600"
                   }
                 >
                   {link.name}
                 </NavLink>
               ))}
+              <a
+                href={resume}
+                download={false}
+                className=" flex gap-2 px-4 hover:text-orange-600 rounded-md transition-all duration-200 font-medium uppercase active:scale-95"
+              >
+                Download CV <Download />
+              </a>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -92,13 +101,20 @@ const Header = () => {
                 to={link.path}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-orange-600 font-se block px-4 py-3 hover:bg-white/10 hover:text-orange-600 rounded-md transition-all duration-200 font-medium uppercase"
-                    : "block px-4 py-3 hover:bg-white/10 hover:text-orange-600 rounded-md transition-all duration-200 font-medium uppercase active:scale-95"
+                    ? "text-amber-600 font-se block px-4 py-3 hover:bg-white/10 hover:text-amber-600 rounded-md transition-all duration-200 font-medium uppercase"
+                    : "block px-4 py-3 hover:bg-white/10 hover:text-amber-600 rounded-md transition-all duration-200 font-medium uppercase active:scale-95"
                 }
               >
                 {link.name}
               </NavLink>
             ))}
+            <a
+              href={resume}
+              download={false}
+              className=" flex gap-2 px-4 py-3 hover:bg-white/10 hover:text-orange-600 rounded-md transition-all duration-200 font-medium uppercase active:scale-95"
+            >
+              Download CV <Download />
+            </a>
           </nav>
         </div>
       </header>
