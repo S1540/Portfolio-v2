@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-zinc-900 py-20 overflow-hidden">
+    <section className="relative w-full bg-zinc-900 pt-16 overflow-hidden">
       {/* Animated Glow */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" />
       <div
@@ -109,7 +109,7 @@ const About = () => {
                     </h3>
                     <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
                       <li className="flex items-start gap-3">
-                        <span className="w-2 h-2 bg-orange-500 rounded-full mt-1.5 sm:mt-2 shrink-0" />
+                        <span className="w-2 h-2 bg-amber-500 rounded-full mt-1.5 sm:mt-2 shrink-0" />
                         <span>Use Always the new technology</span>
                       </li>
                       <li className="flex items-start gap-3">
