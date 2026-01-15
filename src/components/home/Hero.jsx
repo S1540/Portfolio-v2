@@ -60,7 +60,7 @@ const Hero = () => {
   }, [typewriterText, roleIndex]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-zinc-900">
+    <section className="relative w-full overflow-hidden bg-zinc-900">
       {/* Dot Grid Background */}
       <div className="absolute inset-0">
         <div
