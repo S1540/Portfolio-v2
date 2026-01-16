@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Github, Linkedin, Mail, PhoneCall } from "lucide-react";
+import Button from "../common/Button";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -158,14 +159,8 @@ const Hero = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button
-                  className="px-8 py-3 bg-amber-600 backdrop-blur-sm border border-orange-600/30 hover:bg-orange-600/90 text-white rounded-full font-bold flex items-center justify-center gap-2 transition-all 
-                duration-500 hover:scale-101 active:scale-95 cursor-pointer"
-                >
-                  VIEW WORK
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-bold hover:bg-white/10 transition-all cursor-pointer">
+                <Button name="View Work" />
+                <button className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-md font-bold hover:bg-white/10 transition-all cursor-pointer">
                   CONTACT
                 </button>
               </div>

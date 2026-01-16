@@ -35,7 +35,9 @@ const ProjectOverview = () => {
           </div>
         </div>
         {/* Project ShowCase */}
-        <ProjectCard />
+        <div className="">
+          <ProjectCard />
+        </div>
       </div>
     </section>
   );
