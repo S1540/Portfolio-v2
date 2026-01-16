@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { CodeXml, Goal, Sparkles, Code2, Palette, Zap } from "lucide-react";
 
 const About = () => {
@@ -38,7 +39,7 @@ const About = () => {
         {/* Section Header */}
         <div className="flex justify-center mb-12 sm:mb-16">
           <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wider text-white">
               ABOUT ME
             </h2>
             {/* Curved underline */}
@@ -71,7 +72,13 @@ const About = () => {
           {/* Left Column */}
           <div className="space-y-6 sm:space-y-8">
             {/* MERN Stack Card */}
-            <div className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300">
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.2 }}
+              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300"
+            >
               <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div className="relative space-y-3 sm:space-y-4">
@@ -79,7 +86,12 @@ const About = () => {
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-orange-500 to-amber-600 rounded-md flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20">
                     <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       MERN Stack Developer
                     </h3>
@@ -89,13 +101,19 @@ const About = () => {
                       visually polished digital experiences that balance clean
                       design with solid engineering.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Development Style Card */}
-            <div className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-amber-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-amber-500/40 transition-all duration-300">
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.2 }}
+              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-amber-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-amber-500/40 transition-all duration-300"
+            >
               <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div className="relative space-y-3 sm:space-y-4">
@@ -136,12 +154,18 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column - What I Do */}
           <div className="space-y-6 sm:space-y-8">
-            <div className="relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-500/30 rounded-md p-5 sm:p-6 md:p-8">
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.2 }}
+              className="relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-500/30 rounded-md p-5 sm:p-6 md:p-8"
+            >
               <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-orange-500/10 rounded-full blur-3xl" />
 
               <div className="relative space-y-5 sm:space-y-6">
@@ -179,7 +203,7 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

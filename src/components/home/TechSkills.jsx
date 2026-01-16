@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import SkillBufferBar from "../common/SkillBufferBar";
 import html from "../../assets/html.png";
 import css from "../../assets/css.png";
@@ -41,7 +42,7 @@ const TechSkills = () => {
   ];
 
   return (
-    <section className="relative w-full bg-zinc-900 pt-16 overflow-hidden">
+    <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Animated Glow */}
         <div className="absolute top-20 right-20 w-44 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" />
@@ -54,9 +55,9 @@ const TechSkills = () => {
           style={{ animationDelay: "1s" }}
         />
         {/* Section Header */}
-        <div className="flex justify-center mb-12 sm:mb-16">
+        <div className="flex justify-center mb-10 sm:mb-14">
           <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white uppercase tracking-wider">
               Expertise
             </h2>
             {/* Curved underline */}
@@ -84,7 +85,13 @@ const TechSkills = () => {
           </div>
         </div>
         {/* Skills list bar */}
-        <div className=" group max-w-full w-full grid grid-cols-1 sm:grid-cols-2 gap-6 bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border lg:border-b-0 lg:rounded-b-none border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.4 }}
+          className=" group max-w-full w-full grid grid-cols-1 sm:grid-cols-2 gap-6 bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border lg:border-b-0 lg:rounded-b-none border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300"
+        >
           <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
           {skills.map((skill) => (
             <SkillBufferBar
@@ -94,7 +101,7 @@ const TechSkills = () => {
               color={skill.color}
             />
           ))}
-        </div>
+        </motion.div>
         <div>
           <div className="hidden group lg:flex gap-9 items-center justify-center bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-b-md py-4 px-10 hover:border-orange-500/40 transition-all duration-300 ">
             <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />

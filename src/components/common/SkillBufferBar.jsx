@@ -29,7 +29,7 @@ const SkillBufferBar = ({ name, target, color }) => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between ",
+          justifyContent: "space-between",
           fontWeight: 700,
           mb: 0.5,
         }}

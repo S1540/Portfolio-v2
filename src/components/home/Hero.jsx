@@ -236,22 +236,22 @@ const Hero = () => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-8 py-5 bg-black/50 backdrop-blur-sm rounded-md border border-orange-600/20">
-            <div className="grid grid-cols-3 gap-8 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-2 sm:py-4 md:py-6 bg-black/50 backdrop-blur-sm rounded-md border border-orange-600/20">
+            <div className="grid grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-4xl font-black bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent ">
                   25+
                 </div>
                 <div className="text-sm text-gray-500 font-semibold mt-1">
                   Projects
                 </div>
               </div>
-              <div className="border-x border-orange-600/20">
+              <div className="col-span-2 border-l border-x border-orange-600/20">
                 <div className="text-4xl font-black bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
                   2+
                 </div>
-                <div className="text-sm text-gray-500 font-semibold mt-1">
-                  Years
+                <div className="text-sm text-gray-500 font-semibold mt-1 whitespace-nowrap">
+                  Years Learning
                 </div>
               </div>
               <div>
