@@ -1,7 +1,24 @@
 import React from "react";
 import ProjectCard from "../common/ProjectCard";
+import myntra from "../../assets/projectAssets/MyntraFullPage.png";
 
 const ProjectOverview = () => {
+  const projectData = [
+    {
+      title: "Myntra Clone",
+      image: myntra,
+      techStack: ["React", "Tailwind", "Responsive"],
+      description:
+        "A fully responsive e-commerce platform clone featuring modern UI design, product listings with advanced filtering, and smooth navigation. Built with React and Tailwind CSS, this project showcases clean component architecture, optimized performance, and pixel-perfect responsive layouts for seamless mobile-to-desktop experience.",
+      keyFeatures: [
+        "Dynamic product filtering and search functionality",
+        "Fully responsive grid layouts for all screen sizes",
+        "Reusable component-based architecture",
+        "Optimized performance and clean code structure",
+      ],
+    },
+  ];
+
   return (
     <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
@@ -36,7 +53,9 @@ const ProjectOverview = () => {
         </div>
         {/* Project ShowCase */}
         <div className="">
-          <ProjectCard />
+          {projectData.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
       </div>
     </section>
