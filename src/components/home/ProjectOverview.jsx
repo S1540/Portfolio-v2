@@ -1,12 +1,15 @@
 import React from "react";
 import ProjectCard from "../common/ProjectCard";
 import myntra from "../../assets/projectAssets/MyntraFullPage.png";
+import quizBattel from "../../assets/projectAssets/QuizBattel.png";
+import Button from "../common/Button";
 
 const ProjectOverview = () => {
   const projectData = [
     {
       title: "Myntra Clone",
       image: myntra,
+      status: "Completed",
       techStack: ["React", "Tailwind", "Responsive"],
       description:
         "A fully responsive e-commerce platform clone featuring modern UI design, product listings with advanced filtering, and smooth navigation. Built with React and Tailwind CSS, this project showcases clean component architecture, optimized performance, and pixel-perfect responsive layouts for seamless mobile-to-desktop experience.",
@@ -17,10 +20,25 @@ const ProjectOverview = () => {
         "Optimized performance and clean code structure",
       ],
     },
+    {
+      title: "Quiz-Battel",
+      image: quizBattel,
+      status: "Ongoing",
+      techStack: ["React", "Tailwind", "Express", "MongoDB"],
+      description:
+        "Quiz Battle is a full-stack MERN (MongoDB, Express, React, Node.js) web application designed to provide an engaging and competitive quiz experience. The platform allows users to test their knowledge across multiple categories, track their performance, earn rewards, and create custom quizzes. Built with modern web technologies, it features a sleek dark-themed UI, real-time score tracking, and premium features for enhanced user experience.",
+      keyFeatures: [
+        "JWT-based authentication with protected routes.",
+        "User profiles with performance tracking and leaderboard.",
+        "Timed quiz system with instant feedback and scoring.",
+        "Custom quiz creation with premium rewards.",
+        "Responsive dark-themed UI built with Tailwind CSS.",
+      ],
+    },
   ];
 
   return (
-    <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden">
+    <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden border-b-2 border-amber-500/30">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center mb-10 sm:mb-14">
           <div className="relative inline-block">
@@ -52,10 +70,13 @@ const ProjectOverview = () => {
           </div>
         </div>
         {/* Project ShowCase */}
-        <div className="">
+        <div className="w-full mx-auto">
           {projectData.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
+          <div className="flex justify-center py-10">
+            <Button name="View All Projects" />
+          </div>
         </div>
       </div>
     </section>
