@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import SkillBufferBar from "../common/SkillBufferBar";
 import html from "../../assets/html.png";
 import css from "../../assets/css.png";

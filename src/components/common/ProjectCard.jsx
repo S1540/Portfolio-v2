@@ -1,6 +1,6 @@
 import React from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import frame from "../../assets/Laptop-frame.png";
 
 import Button from "./Button";

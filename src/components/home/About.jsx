@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { CodeXml, Goal, Sparkles, Code2, Palette, Zap } from "lucide-react";
 
 const About = () => {
