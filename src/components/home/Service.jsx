@@ -72,7 +72,7 @@ const Service = () => {
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center gap-2"
           >

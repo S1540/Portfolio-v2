@@ -21,7 +21,7 @@ const ProjectCard = ({ project }) => {
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 1.0 }}
           className="relative max-w-xl w-full z-10"
         >
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }) => {
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 1.0 }}
           className="flex flex-col gap-6 z-10"
         >

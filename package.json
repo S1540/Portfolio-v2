@@ -15,6 +15,7 @@
     "@mui/material": "^7.3.7",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.26.2",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.562.0",
     "motion": "^12.26.2",
     "react": "^19.2.0",

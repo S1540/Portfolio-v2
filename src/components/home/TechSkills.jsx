@@ -45,13 +45,13 @@ const TechSkills = () => {
     <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Animated Glow */}
-        <div className="absolute top-20 right-20 w-44 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-44 h-96 bg-orange-600/10 rounded-full blur-2xl animate-pulse" />
         <div
           className="absolute bottom-20 left-20 w-96 h-96 bg-amber-600/10 rounded-full  blur-2xl animate-pulse"
           style={{ animationDelay: "1s" }}
         />
         <div
-          className="absolute bottom-20 left-1/2 w-32 h-72 bg-amber-600/10 rounded-2xl blur-3xl animate-pulse"
+          className="absolute bottom-20 left-1/2 w-32 h-72 bg-amber-600/10 rounded-2xl blur-2xl animate-pulse"
           style={{ animationDelay: "1s" }}
         />
         {/* Section Header */}
@@ -88,7 +88,7 @@ const TechSkills = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4 }}
           className=" group max-w-full w-full grid grid-cols-1 sm:grid-cols-2 gap-6 bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border lg:border-b-0 lg:rounded-b-none border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300"
         >

@@ -29,9 +29,9 @@ const About = () => {
   return (
     <section className="relative w-full bg-zinc-900 pt-16 overflow-hidden">
       {/* Animated Glow */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-2xl animate-pulse" />
       <div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-20 left-20 w-96 h-96 bg-amber-600/10 rounded-full blur-2xl animate-pulse"
         style={{ animationDelay: "1s" }}
       />
 
@@ -75,7 +75,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.2 }}
               className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300"
             >
@@ -89,7 +89,7 @@ const About = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
                   >
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
@@ -110,7 +110,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.2 }}
               className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-amber-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-amber-500/40 transition-all duration-300"
             >
@@ -162,7 +162,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.2 }}
               className="relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-500/30 rounded-md p-5 sm:p-6 md:p-8"
             >

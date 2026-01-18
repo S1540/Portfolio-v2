@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Github, Linkedin, Mail, PhoneCall } from "lucide-react";
+import Lottie from "lottie-react";
+import robot from "../../assets/AiRobot.json";
+import { Github, Linkedin, Mail, PhoneCall } from "lucide-react";
 import Button from "../common/Button";
+import AiRobot from "./AiRobot";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,6 +64,11 @@ const Hero = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-zinc-900">
+      {/* Ai Robot */}
+      <div className="fixed bottom-5 right-5 z-50">
+        <AiRobot />
+      </div>
+
       {/* Dot Grid Background */}
       <div className="absolute inset-0">
         <div
