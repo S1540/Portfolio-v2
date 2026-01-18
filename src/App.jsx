@@ -2,22 +2,36 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/common/Header";
-import Hero from "./components/home/Hero";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/common/Footer";
+import Login from "./pages/Login";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoutes from "./protectedRoutes/ProtectedRoutes";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/lock-Auth" element={<Login />} />
+            <Route
+              path="/Admin-Dashboard"
+              element={
+                <ProtectedRoutes>
+                  <AdminDashboard />
+                </ProtectedRoutes>
+              }
+            />
+          </Routes>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </>
   );
 }
