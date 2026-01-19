@@ -7,7 +7,7 @@ import Service from "../components/home/Service";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="scroll-smooth">
       <Hero />
       <About />
       <TechSkills />

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoutes from "./protectedRoutes/ProtectedRoutes";
 import AdminDashboard from "./pages/AdminDashboard";
+import ProjectPage from "./pages/ProjectPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/project" element={<ProjectPage />} />
             <Route path="/lock-Auth" element={<Login />} />
             <Route
               path="/Admin-Dashboard"

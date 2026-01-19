@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Lottie from "lottie-react";
-import robot from "../../assets/AiRobot.json";
 import { Github, Linkedin, Mail, PhoneCall } from "lucide-react";
 import Button from "../common/Button";
 import AiRobot from "./AiRobot";
+import profilepic from "../../assets/Shubham-2.png";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -206,7 +205,7 @@ const Hero = () => {
                   {/* Image Container */}
                   <div className="relative aspect-square rounded-md overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
                     <img
-                      src="https://shubham-singh-007.netlify.app/assets/image%20S3.jpg"
+                      src={profilepic}
                       alt="Profile"
                       className="w-full h-full object-cover"
                     />

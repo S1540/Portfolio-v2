@@ -1,11 +1,12 @@
-import React from "react";
-import ProjectCard from "../common/ProjectCard";
+import React, { useState } from "react";
 import myntra from "../../assets/projectAssets/MyntraFullPage.png";
 import quizBattel from "../../assets/projectAssets/QuizBattel.png";
-import Button from "../common/Button";
+import ProjectCard from "../common/ProjectCard";
 
-const ProjectOverview = () => {
-  const projectData = [
+const Projects = () => {
+  const [order, setOrder] = useState(null);
+
+  const projects = [
     {
       title: "Myntra Clone",
       image: myntra,
@@ -36,14 +37,13 @@ const ProjectOverview = () => {
       ],
     },
   ];
-
   return (
     <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden border-b-2 border-amber-500/20">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center mb-10 sm:mb-14">
           <div className="relative inline-block">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wider text-white uppercase">
-              Project Overview
+              Projects
             </h2>
             {/* Curved underline */}
             <svg
@@ -69,18 +69,15 @@ const ProjectOverview = () => {
             </svg>
           </div>
         </div>
-        {/* Project ShowCase */}
-        <div className="w-full mx-auto">
-          {projectData.map((project, index) => (
+        {/* Project Cards */}
+        <div>
+          {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
-          <div className="flex justify-center py-10">
-            <Button name="View All Projects" />
-          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default ProjectOverview;
+export default Projects;

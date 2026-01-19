@@ -5,14 +5,18 @@ import frame from "../../assets/Laptop-frame.png";
 
 import Button from "./Button";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
+  const isReversed = index % 2 !== 0;
+
   return (
-    <div className="relative group">
+    <div className="relative group mb-10">
       {/* Background Glow Effect */}
       <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
 
       {/* Main Card */}
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-6 lg:p-8 bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md hover:border-orange-500/50 transition-all duration-300 overflow-hidden group">
+      <div
+        className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12  items-center p-6 lg:p-8 bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md hover:border-orange-500/50 transition-all duration-300 overflow-hidden group`}
+      >
         {/* Decorative Corner Elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-orange-500/10 to-transparent rounded-bl-full"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-linear-to-tr from-amber-500/10 to-transparent rounded-tr-full"></div>
@@ -23,7 +27,7 @@ const ProjectCard = ({ project }) => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.0 }}
-          className="relative max-w-xl w-full z-10"
+          className={`relative max-w-xl w-full z-10 ${isReversed ? "lg:order-2" : "lg:order-1"}`}
         >
           {/* Status Badge */}
           <div className="flex items-center gap-2 mb-4">
@@ -51,9 +55,6 @@ const ProjectCard = ({ project }) => {
                 className="w-full transition-transform duration-4000 ease-in-out group-hover/laptop:-translate-y-[80%]"
               />
             </div>
-
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-orange-500/10 rounded-md blur-2xl opacity-0 group-hover/laptop:opacity-100 transition-opacity duration-500 -z-10"></div>
           </div>
         </motion.div>
 
@@ -63,7 +64,7 @@ const ProjectCard = ({ project }) => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.0 }}
-          className="flex flex-col gap-6 z-10"
+          className={`flex flex-col gap-6 z-10 ${isReversed ? "lg:order-1" : "lg:order-2"}`}
         >
           {/* Project Title */}
           <div className="space-y-4">
