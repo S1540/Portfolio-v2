@@ -26,21 +26,76 @@ const AdminDashboard = () => {
   });
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setProjectData({ ...projectData, [name]: value });
+    const { name, value, files, type, checked } = e.target;
+
+    setProjectData((prev) => {
+      //file
+      if (type === "file") {
+        return {
+          ...prev,
+          [name]: files[0],
+        };
+      }
+      //for checkbox
+      if (type === "checkbox") {
+        return {
+          ...prev,
+          techStack: checked
+            ? [...prev.techStack, value]
+            : prev.techStack.filter((tech) => tech !== value),
+        };
+      }
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
-  const handleOnSubmit = (e) => {
+  // const handleOnSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("projectName", projectData.projectName);
+  //   formData.append("techStack", JSON.stringify(projectData.techStack));
+  //   formData.append("githubLink", projectData.githubLink);
+  //   formData.append("liveLink", projectData.liveLink);
+  //   formData.append("projectImage", projectData.projectImage);
+  //   formData.append("projectStatus", projectData.projectStatus);
+  //   formData.append("projectDescription", projectData.projectDescription);
+  //   console.log(formData);
+
+  //   try {
+  //     const res = await fetch("http://localhost:3000/admin/new-project", {
+  //       method: "POST",
+  //       contentType: "application/json",
+  //       body: JSON.stringify(projectData),
+  //       credentials: "include",
+  //     });
+  //     const result = await res.json();
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("projectName", projectData.projectName);
-    formData.append("techStack", JSON.stringify(projectData.techStack));
-    formData.append("githubLink", projectData.githubLink);
-    formData.append("liveLink", projectData.liveLink);
-    formData.append("projectImage", projectData.projectImage);
-    formData.append("projectStatus", projectData.projectStatus);
-    formData.append("projectDescription", projectData.projectDescription);
-    console.log(formData);
+
+    try {
+      const res = await fetch("http://localhost:3000/admin/new-project", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(projectData), // ✔ correct
+        credentials: "include",
+      });
+
+      const result = await res.json();
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -97,6 +152,8 @@ const AdminDashboard = () => {
               <label className="text-sm text-gray-300">Project Snapshot</label>
               <input
                 type="file"
+                name="projectImage"
+                onChange={handleOnChange}
                 className="bg-zinc-800 border border-dashed border-orange-600/40 p-2 rounded cursor-pointer file:text-sm file:bg-orange-600 file:border-0 file:px-3 file:py-1 file:text-black"
               />
             </div>

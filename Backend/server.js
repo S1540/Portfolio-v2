@@ -12,6 +12,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(
@@ -21,6 +22,7 @@ app.use(
   }),
 );
 app.use("/auth", require("./routes/loginRoute"));
+app.use("/admin", require("./routes/panelRoutes"));
 
 // app.get("/", (req, res) => {
 //   res.send("Hello Server");
