@@ -83,7 +83,7 @@ const Service = () => {
         </div>
       </div>
       {/* button */}
-      <div className="w-full h-72"></div>
+      <div className="w-full h-72 backdrop-blur-xs"></div>
     </section>
   );
 };

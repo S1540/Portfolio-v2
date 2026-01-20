@@ -5,6 +5,7 @@ import { Download } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   const NavLinks = [
     {
@@ -99,6 +100,7 @@ const Header = () => {
               <NavLink
                 key={index}
                 to={link.path}
+                onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) =>
                   isActive
                     ? "text-amber-600 font-se block px-4 py-3 hover:bg-white/10 hover:text-amber-600 rounded-md transition-all duration-200 font-medium uppercase"

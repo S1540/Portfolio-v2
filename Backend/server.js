@@ -3,6 +3,8 @@ const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
+const Panel = require("./models/panelSchema");
 const app = express();
 
 // Mongoose Connection
@@ -14,6 +16,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
 app.use(
   cors({
@@ -23,6 +26,21 @@ app.use(
 );
 app.use("/auth", require("./routes/loginRoute"));
 app.use("/admin", require("./routes/panelRoutes"));
+
+app.get("/projects", async (req, res) => {
+  try {
+    const projects = await Panel.find();
+    res.status(200).json({
+      success: true,
+      projects,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching projects",
+    });
+  }
+});
 
 // app.get("/", (req, res) => {
 //   res.send("Hello Server");

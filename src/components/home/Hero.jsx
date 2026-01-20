@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, PhoneCall } from "lucide-react";
 import Button from "../common/Button";
 import AiRobot from "./AiRobot";
 import profilepic from "../../assets/Shubham-2.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -165,7 +166,9 @@ const Hero = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button name="View Work" />
+                <Link to={"/project"}>
+                  <Button name="View Work" />
+                </Link>
                 <button className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-md font-bold hover:bg-white/10 transition-all cursor-pointer">
                   CONTACT
                 </button>

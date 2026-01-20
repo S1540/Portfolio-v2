@@ -7,9 +7,9 @@ import Button from "../common/Button";
 const ProjectOverview = () => {
   const projectData = [
     {
-      title: "Myntra Clone",
-      image: myntra,
-      status: "Completed",
+      projectName: "Myntra Clone",
+      Image: myntra,
+      projectStatus: "Completed",
       techStack: ["React", "Tailwind", "Responsive"],
       description:
         "A fully responsive e-commerce platform clone featuring modern UI design, product listings with advanced filtering, and smooth navigation. Built with React and Tailwind CSS, this project showcases clean component architecture, optimized performance, and pixel-perfect responsive layouts for seamless mobile-to-desktop experience.",
@@ -21,9 +21,9 @@ const ProjectOverview = () => {
       ],
     },
     {
-      title: "Quiz-Battel",
-      image: quizBattel,
-      status: "Ongoing",
+      projectName: "Quiz-Battel",
+      Image: quizBattel,
+      projectStatus: "Ongoing",
       techStack: ["React", "Tailwind", "Express", "MongoDB"],
       description:
         "Quiz Battle is a full-stack MERN (MongoDB, Express, React, Node.js) web application designed to provide an engaging and competitive quiz experience. The platform allows users to test their knowledge across multiple categories, track their performance, earn rewards, and create custom quizzes. Built with modern web technologies, it features a sleek dark-themed UI, real-time score tracking, and premium features for enhanced user experience.",

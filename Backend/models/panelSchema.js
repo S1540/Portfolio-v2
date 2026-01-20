@@ -5,9 +5,10 @@ const panelSchema = mongoose.Schema({
   techStack: { type: Array, required: true },
   githubLink: { type: String, required: true },
   liveLink: { type: String, required: true },
-  //   projectImage: { type: String, required: true, default: "" },
+  projectImage: { type: String, required: true },
   projectStatus: { type: String, required: true },
   projectDescription: { type: String, required: true },
+  keyFeatures: { type: Array, required: true },
 });
 
 const Panel = mongoose.model("Panel", panelSchema);

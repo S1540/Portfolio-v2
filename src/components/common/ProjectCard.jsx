@@ -2,7 +2,7 @@ import React from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import frame from "../../assets/Laptop-frame.png";
-
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const ProjectCard = ({ project, index }) => {
@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Left Column - Laptop Frame */}
         <motion.div
-          initial={{ opacity: 0, x: -80 }}
+          initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.0 }}
@@ -33,7 +33,7 @@ const ProjectCard = ({ project, index }) => {
           <div className="flex items-center gap-2 mb-4">
             <span className="text-sm font-medium text-gray-400">Status:</span>
             <span className="px-3 py-1 bg-green-500/20 border border-green-500/50 text-green-400 text-xs font-bold rounded-md">
-              {project.status}
+              {project.projectStatus}
             </span>
           </div>
 
@@ -50,7 +50,11 @@ const ProjectCard = ({ project, index }) => {
             <div className="absolute top-[10%] left-[12%] w-[76%] h-[75%] overflow-hidden rounded-sm z-20 cursor-pointer">
               {/* Scroll Image */}
               <img
-                src={project.image}
+                src={
+                  project.projectImage
+                    ? `http://localhost:3000/uploads/${project.projectImage}`
+                    : `${project.Image}`
+                }
                 alt="Project screenshot"
                 className="w-full transition-transform duration-4000 ease-in-out group-hover/laptop:-translate-y-[80%]"
               />
@@ -60,7 +64,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Right Column - Description */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.0 }}
@@ -69,7 +73,7 @@ const ProjectCard = ({ project, index }) => {
           {/* Project Title */}
           <div className="space-y-4">
             <h3 className="text-3xl lg:text-4xl font-black bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              {project.title}
+              {project.projectName}
             </h3>
 
             {/* Tech Stack */}
@@ -89,7 +93,7 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Description */}
           <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
-            {project.description}
+            {project.projectDescription}
           </p>
 
           {/* Features */}
@@ -117,10 +121,12 @@ const ProjectCard = ({ project, index }) => {
           {/* Buttons */}
           <div className="flex flex-wrap gap-3 pt-2">
             <Button name="View Live Demo" />
-            <button className="px-6 py-3 bg-zinc-800 border border-zinc-700 hover:border-orange-500/50 text-white rounded-md font-bold flex items-center gap-2 transition-all hover:bg-zinc-700 group/btn">
-              <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
-              <span>Source Code</span>
-            </button>
+            <Link to={project.githubLink}>
+              <button className="px-6 py-3 bg-zinc-800 border border-zinc-700 hover:border-orange-500/50 text-white rounded-md font-bold flex items-center justify-center sm:justify-start gap-2 transition-all hover:bg-zinc-700 group/btn w-full sm:w-auto cursor-pointer">
+                <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
+                <span>Source Code</span>
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>

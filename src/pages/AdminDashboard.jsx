@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { Minus, Plus } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
 const techStackList = [
   "Vanilla JavaScript",
@@ -15,14 +16,17 @@ const techStackList = [
 ];
 
 const AdminDashboard = () => {
+  const [result, setResult] = useState({});
+  const [showNotification, setShowNotification] = useState(false);
   const [projectData, setProjectData] = useState({
     projectName: "",
     techStack: [],
     githubLink: "",
     liveLink: "",
     projectImage: null,
-    projectStatus: "",
+    projectStatus: "live",
     projectDescription: "",
+    keyFeatures: [""],
   });
 
   const handleOnChange = (e) => {
@@ -52,68 +56,124 @@ const AdminDashboard = () => {
     });
   };
 
-  // const handleOnSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("projectName", projectData.projectName);
-  //   formData.append("techStack", JSON.stringify(projectData.techStack));
-  //   formData.append("githubLink", projectData.githubLink);
-  //   formData.append("liveLink", projectData.liveLink);
-  //   formData.append("projectImage", projectData.projectImage);
-  //   formData.append("projectStatus", projectData.projectStatus);
-  //   formData.append("projectDescription", projectData.projectDescription);
-  //   console.log(formData);
+  // Handle Key Features
+  const handleKeyFeaturesChange = (index, value) => {
+    setProjectData((prev) => {
+      const updatedKeyFtrs = [...prev.keyFeatures];
+      updatedKeyFtrs[index] = value;
+      return {
+        ...prev,
+        keyFeatures: updatedKeyFtrs,
+      };
+    });
+  };
 
-  //   try {
-  //     const res = await fetch("http://localhost:3000/admin/new-project", {
-  //       method: "POST",
-  //       contentType: "application/json",
-  //       body: JSON.stringify(projectData),
-  //       credentials: "include",
-  //     });
-  //     const result = await res.json();
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  // btn add on featurs according to key features
+  const addKeyInput = () => {
+    setProjectData((prev) => ({
+      ...prev,
+      keyFeatures: [...prev.keyFeatures, ""],
+    }));
+  };
+
+  const removeKeyInput = (index) => {
+    setProjectData((prev) => ({
+      ...prev,
+      keyFeatures: prev.keyFeatures.filter((_, i) => i !== index),
+    }));
+  };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("projectName", projectData.projectName);
+    formData.append("techStack", JSON.stringify(projectData.techStack));
+    formData.append("githubLink", projectData.githubLink);
+    formData.append("liveLink", projectData.liveLink);
+    formData.append("projectImage", projectData.projectImage);
+    formData.append("projectStatus", projectData.projectStatus);
+    formData.append("projectDescription", projectData.projectDescription);
+    formData.append("keyFeatures", JSON.stringify(projectData.keyFeatures));
+    // console.log(formData);
 
     try {
       const res = await fetch("http://localhost:3000/admin/new-project", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(projectData), // ✔ correct
+        body: formData,
         credentials: "include",
       });
-
       const result = await res.json();
-      console.log(result);
+      setProjectData({
+        projectName: "",
+        techStack: [],
+        githubLink: "",
+        liveLink: "",
+        projectImage: null,
+        projectStatus: "live",
+        projectDescription: "",
+        keyFeatures: [""],
+      });
+      setResult(result);
+      setShowNotification(true);
     } catch (error) {
-      console.log(error);
+      setResult({ error: error.message });
     }
   };
+  // Notification
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showNotification]);
 
   return (
     <section className="bg-zinc-950 min-h-screen text-white px-4 py-10">
       {/* Header */}
-      <div className="flex flex-col items-center mb-10">
+      <div className="flex flex-col items-center mb-10 border-b border-orange-600/30 pb-5">
         <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wider">
           Admin Command Center
         </h1>
         <ul className="flex gap-8 mt-3 text-sm text-gray-400">
-          <li>Safe</li>
-          <li>Secure</li>
-          <li>Reliable</li>
+          <li className="flex flex-row-reverse items-center gap-2">
+            Safe
+            <span className="bg-green-500 w-2 h-2 rounded-full inline-block animate-pulse"></span>
+          </li>
+          <li className="flex flex-row-reverse items-center gap-2">
+            Secure
+            <span className="bg-green-500 w-2 h-2 rounded-full inline-block animate-pulse"></span>
+          </li>
+          <li className="flex flex-row-reverse items-center gap-2">
+            Reliable
+            <span className="bg-green-500 w-2 h-2 rounded-full inline-block animate-pulse"></span>
+          </li>
         </ul>
       </div>
 
+      {/* Show notification on submit (success) */}
+      {/* Notification */}
+      <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50">
+        {result.success && showNotification && (
+          <div className="bg-green-500/20 border border-green-500/50 text-green-200 font-bold p-3 rounded-sm text-center w-4xl">
+            {result.message}
+          </div>
+        )}
+
+        {result.error && showNotification && (
+          <div className="bg-red-500/20 border border-red-500/50 text-red-200 font-bold p-3 rounded-sm text-center w-4xl">
+            {result.error}
+          </div>
+        )}
+      </div>
+
       {/* Admin Board */}
-      <form onSubmit={handleOnSubmit}>
+      <form
+        autoComplete="on"
+        onSubmit={handleOnSubmit}
+        encType="multipart/form-data"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-6">
@@ -185,6 +245,37 @@ const AdminDashboard = () => {
                 className="bg-zinc-800 border border-orange-600/30 p-2 rounded outline-none focus:border-orange-500"
               />
             </div>
+            {/* KeyFeatures */}
+            <div className="flex flex-col gap-1 w-full">
+              <label className="text-sm text-gray-300">Key Features</label>
+              {projectData?.keyFeatures?.map((feature, index) => (
+                <div key={index} className="flex items-center gap-2 w-full">
+                  <input
+                    type="text"
+                    name="keyFeatures"
+                    onChange={(e) =>
+                      handleKeyFeaturesChange(index, e.target.value)
+                    }
+                    value={feature}
+                    required
+                    placeholder={`Add Feature ${index + 1}`}
+                    className="bg-zinc-800 border border-orange-600/30 p-2 rounded outline-none focus:border-orange-500 w-full"
+                  />
+                  {index === projectData.keyFeatures.length - 1 && (
+                    <Plus
+                      className="w-5 h-5 cursor-pointer"
+                      onClick={addKeyInput}
+                    />
+                  )}
+                  {index !== projectData.keyFeatures.length - 1 && (
+                    <Minus
+                      className="w-5 h-5 cursor-pointer"
+                      onClick={() => removeKeyInput(index)}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* RIGHT COLUMN */}
@@ -235,7 +326,7 @@ const AdminDashboard = () => {
         <div className="flex justify-center mt-12">
           <button
             type="submit"
-            className="px-10 py-3 bg-orange-600 hover:bg-orange-500 text-black font-bold rounded transition"
+            className="px-10 py-3 bg-orange-600 hover:bg-orange-500 text-black font-bold rounded transition cursor-pointer"
           >
             Save Project
           </button>
