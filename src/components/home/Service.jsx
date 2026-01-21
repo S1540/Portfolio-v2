@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import developer from "../../assets/serviceAssets/developer.png";
 import cleanCode from "../../assets/serviceAssets/clean-code.png";
-import responsive from "../../assets/serviceAssets/Responsive.png";
+import responsive from "../../assets/serviceAssets/Responsive.webp";
 import genAi from "../../assets/serviceAssets/gen-ai.png";
 import animation from "../../assets/serviceAssets/walking office man.json";
 import Button from "../common/Button";
@@ -15,25 +15,25 @@ const Service = () => {
       name: "Web Development",
       image: developer,
       description:
-        "Building responsive and modern websites using latest technologies.",
+        "Building responsive and modern websites using latest technologies and Ai Integration for enhanced user experience.",
     },
     {
       name: "Clean Code",
       image: cleanCode,
       description:
-        "Writing clean, maintainable code for optimal performance and maintainability",
+        "Writing clean, maintainable code for optimal performance and maintainability of web applications. For deployment first approach.",
     },
     {
       name: "Responsive Design",
       image: responsive,
       description:
-        "Creating fully responsive and user-friendly layouts for all screen size.",
+        "Creating fully responsive and user-friendly layouts for all screen size. For mobile-first approach. along with pixel-perfect design.",
     },
     {
       name: "Gen-AI",
       image: genAi,
       description:
-        "Incorporating AI features to enhance user experience and functionality.",
+        "Incorporating AI features to enhance user experience and functionality. For better user engagement and personalized recommendations.",
     },
   ];
 
@@ -91,8 +91,11 @@ const Service = () => {
         </div>
         {/* button */}
 
-        <div className="flex justify-center items-center h-full">
+        <div className="flex flex-col gap-2 justify-center items-center h-full">
           <Button name="Hire Me" />
+          <h1 className="text-2xl md:text-3xl font-medium tracking-wider text-white">
+            I'M AVAILABLE FOR FREELANCE
+          </h1>
         </div>
       </div>
     </section>

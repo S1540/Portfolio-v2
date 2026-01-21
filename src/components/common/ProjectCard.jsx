@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import frame from "../../assets/Laptop-frame.png";
@@ -6,12 +6,19 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const ProjectCard = ({ project, index }) => {
+  const [animatedHeight, setAnimatedHeight] = useState(false);
   const isReversed = index % 2 !== 0;
 
   return (
-    <div className="relative group mb-10">
+    <div
+      onMouseEnter={() => setAnimatedHeight(true)}
+      onMouseLeave={() => setAnimatedHeight(false)}
+      className="relative group mb-10 overflow-hidden"
+    >
       {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div
+        className={` absolute inset-0 bg-linear-to-br from-amber-500/20 to-transparent w-full h-full ${animatedHeight ? "translate-y-0" : "translate-y-full"} transition-transform duration-500`}
+      ></div>
 
       {/* Main Card */}
       <div
@@ -43,7 +50,7 @@ const ProjectCard = ({ project, index }) => {
             <img
               src={frame}
               alt="Laptop frame"
-              className="w-full relative z-10 drop-shadow-2xl"
+              className="w-full relative z-10"
             />
 
             {/* Screen Area */}

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { CodeXml, Goal, Sparkles, Code2, Palette, Zap } from "lucide-react";
 
 const About = () => {
+  const [animatedHeight, setAnimatedHeight] = useState(false);
   const services = [
     {
       icon: <Code2 className="w-6 h-6" />,
@@ -73,18 +74,22 @@ const About = () => {
           <div className="space-y-6 sm:space-y-8">
             {/* MERN Stack Card */}
             <motion.div
-              initial={{ opacity: 0, x: 80 }}
+              onMouseEnter={() => setAnimatedHeight(true)}
+              onMouseLeave={() => setAnimatedHeight(false)}
+              initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.2 }}
-              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300"
+              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-orange-500/40 transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div
+                className={`absolute inset-0 bg-linear-to-br from-orange-500/20 to-transparent rounded-md ${animatedHeight ? "translate-y-0" : "translate-y-full"} transition-transform duration-500`}
+              />
 
-              <div className="relative space-y-3 sm:space-y-4">
+              <div className="relative space-y-3 sm:space-y-4 group">
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-orange-500 to-amber-600 rounded-md flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20">
-                    <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-orange-500 to-amber-600 rounded-md flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group">
+                    <CodeXml className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:rotate-360 transition-transform duration-700" />
                   </div>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -108,18 +113,22 @@ const About = () => {
 
             {/* Development Style Card */}
             <motion.div
+              onMouseEnter={() => setAnimatedHeight(true)}
+              onMouseLeave={() => setAnimatedHeight(false)}
               initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.2 }}
-              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-amber-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-amber-500/40 transition-all duration-300"
+              className="group relative bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-amber-600/20 rounded-md p-5 sm:p-6 md:p-8 hover:border-amber-500/40 transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div
+                className={`absolute inset-0 bg-linear-to-br from-orange-500/20 to-transparent rounded-md ${animatedHeight ? "translate-y-0" : "translate-y-full"} transition-transform duration-500`}
+              />
 
               <div className="relative space-y-3 sm:space-y-4">
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-amber-500 to-orange-600 rounded-md flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
-                    <Goal className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-amber-500 to-orange-600 rounded-md flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20 group">
+                    <Goal className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:rotate-360 transition-transform duration-700 " />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
