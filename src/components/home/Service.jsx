@@ -1,11 +1,13 @@
 import React from "react";
 import ServiceCard from "../common/ServiceCard";
 import { motion } from "framer-motion";
+import Lottie from "lottie-react";
 import developer from "../../assets/serviceAssets/developer.png";
 import cleanCode from "../../assets/serviceAssets/clean-code.png";
 import responsive from "../../assets/serviceAssets/Responsive.png";
 import genAi from "../../assets/serviceAssets/gen-ai.png";
-import fixbg from "../../assets/fixBg.jpg";
+import animation from "../../assets/serviceAssets/walking office man.json";
+import Button from "../common/Button";
 
 const Service = () => {
   const services = [
@@ -82,8 +84,17 @@ const Service = () => {
           </motion.div>
         </div>
       </div>
-      {/* button */}
-      <div className="w-full h-72 backdrop-blur-xs"></div>
+      {/* button + animation */}
+      <div className="relative w-full h-72 backdrop-blur-xs">
+        <div className="animate w-28 h-32 absolute -bottom-10">
+          <Lottie animationData={animation} loop={true} />
+        </div>
+        {/* button */}
+
+        <div className="flex justify-center items-center h-full">
+          <Button name="Hire Me" />
+        </div>
+      </div>
     </section>
   );
 };

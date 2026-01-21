@@ -2,6 +2,20 @@
 body {
   background: linear-gradient(90deg, #09090b 0%, #18181b 50%, #1b1b1d 100%);
 }
+.animate {
+  animation: animate-char 20s linear infinite;
+}
+@keyframes animate-char {
+  0% {
+    left: -60px;
+    transform: scaleX(1);
+  }
+
+  100% {
+    left: calc(100% - 60px);
+    transform: scaleX(1);
+  }
+}
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
