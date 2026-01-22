@@ -26,6 +26,7 @@ app.use(
 );
 app.use("/auth", require("./routes/loginRoute"));
 app.use("/admin", require("./routes/panelRoutes"));
+app.use("/ai-chatbot", require("./routes/chatRoutes"));
 
 app.get("/projects", async (req, res) => {
   try {
