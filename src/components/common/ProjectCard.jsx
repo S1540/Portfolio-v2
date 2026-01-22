@@ -127,7 +127,9 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-3 pt-2">
-            <Button name="View Live Demo" />
+            <Link to={project.liveLink}>
+              <Button name="View Live Demo" />
+            </Link>
             <Link to={project.githubLink}>
               <button className="px-6 py-3 bg-zinc-800 border border-zinc-700 hover:border-orange-500/50 text-white rounded-md font-bold flex items-center justify-center sm:justify-start gap-2 transition-all hover:bg-zinc-700 group/btn w-full sm:w-auto cursor-pointer">
                 <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />

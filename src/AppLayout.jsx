@@ -9,6 +9,7 @@ import ProjectPage from "./pages/ProjectPage";
 import Loader from "./components/common/Loader";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AIChatbot from "./components/AiChatbot/AIChatbot";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 const AppLayout = () => {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ const AppLayout = () => {
     <>
       <Header />
       <AIChatbot />
+      <ScrollToTop />
       <div className="relative">
         <Routes>
           <Route path="/" element={<HomePage />} />

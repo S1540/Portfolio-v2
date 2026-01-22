@@ -38,7 +38,7 @@ const Hero = () => {
               key={index}
               src={image}
               alt="slider-image"
-              className={` absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
+              className={` absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${index === currentIndex ? "opacity-80" : "opacity-0"}`}
             />
           ))}
         </div>
