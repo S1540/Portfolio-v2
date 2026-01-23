@@ -16,9 +16,9 @@ import word from "../../assets/word.png";
 
 const TechSkills = () => {
   const skills = [
-    { name: "HTML", value: 90, color: "#f56565" },
-    { name: "CSS", value: 80, color: "#60a5fa" },
-    { name: "React", value: 80, color: "#61dafb" },
+    { name: "HTML", value: 90, color: "#f56565", duration: 2000 },
+    { name: "CSS", value: 80, color: "#60a5fa", duration: 2000 },
+    { name: "React", value: 80, color: "#61dafb", duration: 2000 },
     { name: "JavaScript", value: 75, color: "#f7df1e" },
     { name: "Tailwind", value: 90, color: "#38bdf8" },
     { name: "Next.js", value: 30, color: "#f59e0b" },

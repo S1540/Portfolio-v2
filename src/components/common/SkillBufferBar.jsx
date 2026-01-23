@@ -1,61 +1,67 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import LinearProgress from "@mui/material/LinearProgress";
-import Typography from "@mui/material/Typography";
+import React, { useState, useEffect } from "react";
 
 const SkillBufferBar = ({ name, target, color }) => {
-  const [progress, setProgress] = React.useState(0);
-  const [buffer, setBuffer] = React.useState(10);
+  const [progress, setProgress] = useState(0);
 
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((old) => {
-        if (old >= target) return target;
-        return old + 1;
+  useEffect(() => {
+    setProgress(0);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setProgress(target);
       });
-
-      setBuffer((old) => {
-        if (old >= target + 10) return target + 10;
-        return old + Math.random() * 5;
-      });
-    }, 20);
-
-    return () => clearInterval(timer);
+    });
   }, [target]);
 
   return (
-    <Box sx={{ mb: 3 }}>
+    <div className="w-full my-2">
       {/* Label */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          fontWeight: 700,
-          mb: 0.5,
-        }}
-      >
-        <Typography sx={{ color: "#fff" }}>{name}</Typography>
-        <Typography sx={{ color }}>{target}%</Typography>
-      </Box>
+      <div className="flex justify-between mb-1 text-sm text-white">
+        <span>{name}</span>
+        <span className="font-bold" style={{ color }}>
+          {target}%
+        </span>
+      </div>
 
-      {/* Progress */}
-      <LinearProgress
-        variant="buffer"
-        value={progress}
-        valueBuffer={buffer}
-        sx={{
-          height: 8,
-          borderRadius: 5,
-          backgroundColor: "#27272a",
-          "& .MuiLinearProgress-bar": {
-            backgroundColor: color,
-          },
-          "& .MuiLinearProgress-bar2": {
-            backgroundColor: `${color}55`,
-          },
-        }}
-      />
-    </Box>
+      {/* Track */}
+      <div className="w-full h-3 rounded-full bg-gray-700 overflow-hidden">
+        {/* Fill */}
+        <div
+          className="h-full rounded-full transition-all duration-1000 ease-out relative"
+          style={{
+            width: `${progress}%`,
+            background: color,
+            boxShadow: `0 0 12px ${color}80`,
+          }}
+        >
+          {/* Shine */}
+          <div className="shine"></div>
+        </div>
+      </div>
+
+      {/* Shine CSS */}
+      <style>{`
+        .shine {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.4),
+            transparent
+          );
+          animation: shineMove 2s infinite;
+        }
+
+        @keyframes shineMove {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(200%);
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
