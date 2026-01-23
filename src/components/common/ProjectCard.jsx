@@ -63,7 +63,7 @@ const ProjectCard = ({ project, index }) => {
                     : `${project.Image}`
                 }
                 alt="Project screenshot"
-                className="w-full transition-transform duration-4000 ease-in-out group-hover/laptop:-translate-y-[80%]"
+                className="w-full will-change-transform transition-transform duration-3000 ease-linear group-hover/laptop:-translate-y-[700px]"
               />
             </div>
           </div>

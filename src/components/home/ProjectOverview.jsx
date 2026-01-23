@@ -1,8 +1,9 @@
 import React from "react";
 import ProjectCard from "../common/ProjectCard";
-import myntra from "../../assets/projectAssets/MyntraFullPage.png";
-import quizBattel from "../../assets/projectAssets/QuizBattel.png";
+import myntra from "../../assets/projectAssets/MyntraFullPage.webp";
+import quizBattel from "../../assets/projectAssets/Quiz-battel.webp";
 import Button from "../common/Button";
+import { Link } from "react-router-dom";
 
 const ProjectOverview = () => {
   const projectData = [
@@ -75,7 +76,9 @@ const ProjectOverview = () => {
             <ProjectCard key={index} project={project} index={index} />
           ))}
           <div className="flex justify-center py-10">
-            <Button name="View All Projects" />
+            <Link to="/project">
+              <Button name="View All Projects" />
+            </Link>
           </div>
         </div>
       </div>

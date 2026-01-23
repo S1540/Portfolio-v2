@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import myntra from "../../assets/projectAssets/MyntraFullPage.png";
-import quizBattel from "../../assets/projectAssets/QuizBattel.png";
 import ProjectCard from "../common/ProjectCard";
 
 const Projects = () => {

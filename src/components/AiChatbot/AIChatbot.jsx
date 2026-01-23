@@ -70,6 +70,12 @@ const AIChatbot = () => {
 
   return (
     <section className="relative">
+      <span
+        className="fixed top-20 right-3 md:top-auto md:right-6 md:bottom-20 w-4 h-4 rounded-full inline-block bg-red-500 z-40 text-center
+       text-white text-xs animate-pulse"
+      >
+        1
+      </span>
       {/* Floating Bot Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
