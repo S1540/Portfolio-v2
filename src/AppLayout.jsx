@@ -10,6 +10,7 @@ import Loader from "./components/common/Loader";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AIChatbot from "./components/AiChatbot/AIChatbot";
 import ScrollToTop from "./components/common/ScrollToTop";
+import ContactPage from "./pages/ContactPage";
 
 const AppLayout = () => {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ const AppLayout = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/project" element={<ProjectPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/lock-Auth" element={<Login />} />
           <Route
             path="/Admin-Dashboard"

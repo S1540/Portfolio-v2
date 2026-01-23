@@ -39,7 +39,7 @@ const ProjectOverview = () => {
   ];
 
   return (
-    <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden border-b-2 border-amber-500/20">
+    <section className="relative w-full pt-20 overflow-hidden border-b-2 border-amber-500/20">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center mb-10 sm:mb-14">
           <div className="relative inline-block">

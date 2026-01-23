@@ -42,7 +42,7 @@ const TechSkills = () => {
   ];
 
   return (
-    <section className="relative w-full bg-zinc-900 pt-20 overflow-hidden">
+    <section className="relative w-full pt-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Animated Glow */}
         <div className="absolute top-20 right-20 w-44 h-96 bg-orange-600/10 rounded-full blur-2xl animate-pulse" />

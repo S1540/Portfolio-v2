@@ -28,7 +28,7 @@ const About = () => {
   ];
 
   return (
-    <section className="relative w-full bg-zinc-900 pt-16 overflow-hidden">
+    <section className="relative w-full pt-16 overflow-hidden">
       {/* Animated Glow */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-2xl animate-pulse" />
       <div

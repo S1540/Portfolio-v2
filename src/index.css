@@ -1,6 +1,6 @@
 @import "tailwindcss";
 body {
-  background: linear-gradient(90deg, #09090b 0%, #18181b 50%, #1b1b1d 100%);
+  background-color: #18181b;
 }
 .animate {
   animation: animate-char 20s linear infinite;
