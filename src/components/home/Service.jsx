@@ -8,6 +8,8 @@ import responsive from "../../assets/serviceAssets/Responsive.webp";
 import genAi from "../../assets/serviceAssets/gen-ai.png";
 import animation from "../../assets/serviceAssets/walking office man.json";
 import Button from "../common/Button";
+import { Link } from "react-router-dom";
+import resume from "../../assets/Resume3.0.pdf";
 
 const Service = () => {
   const services = [
@@ -69,7 +71,9 @@ const Service = () => {
         {/* button */}
 
         <div className="flex flex-col gap-2 justify-center items-center h-full px-4">
-          <Button name="Hire Me" />
+          <a href={resume} download={false}>
+            <Button name="Hire Me" />
+          </a>
           <h1 className="text-lg md:text-3xl font-medium tracking-wider text-white py-4">
             I'M AVAILABLE FOR FREELANCING
           </h1>

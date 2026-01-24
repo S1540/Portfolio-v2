@@ -59,7 +59,7 @@ const ProjectCard = ({ project, index }) => {
               <img
                 src={
                   project.projectImage
-                    ? `http://localhost:3000/uploads/${project.projectImage}`
+                    ? `/uploads/${project.projectImage}`
                     : `${project.Image}`
                 }
                 alt="Project screenshot"

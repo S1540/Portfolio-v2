@@ -163,9 +163,12 @@ const Hero = () => {
                 <Link to={"/project"}>
                   <Button name="View Work" />
                 </Link>
-                <button className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-md font-bold hover:bg-white/10 transition-all cursor-pointer">
+                <a
+                  href="https://wa.me/917050043530?text=Hello%20Shubham%20Singh..!%20Let's%20discuss%20your%20project"
+                  className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-md font-bold hover:bg-white/10 transition-all cursor-pointer text-center"
+                >
                   CONTACT
-                </button>
+                </a>
               </div>
 
               <div className="flex gap-3 pt-2">

@@ -6,7 +6,7 @@ const Projects = () => {
 
   useEffect(() => {
     const handleFetch = async () => {
-      const res = await fetch("http://localhost:3000/projects", {
+      const res = await fetch("/projects", {
         method: "GET",
         credentials: "include",
       });

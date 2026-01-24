@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Send, X, Bot, User, Loader, Loader2 } from "lucide-react";
 import robot from "../../assets/AiChatbot.png";
 
-const API_URL = "http://localhost:3000/ai-chatbot";
+const API_URL = "/ai-chatbot";
 
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);

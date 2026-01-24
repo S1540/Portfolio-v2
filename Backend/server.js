@@ -18,12 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  }),
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173",
+//     credentials: true,
+//   }),
+// );
 app.use("/auth", require("./routes/loginRoute"));
 app.use("/admin", require("./routes/panelRoutes"));
 app.use("/ai-chatbot", require("./routes/chatRoutes"));
@@ -41,6 +41,11 @@ app.get("/projects", async (req, res) => {
       message: "Error fetching projects",
     });
   }
+});
+
+app.use(express.static(path.join(__dirname, "dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 // app.get("/", (req, res) => {

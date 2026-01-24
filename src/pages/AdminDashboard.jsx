@@ -97,7 +97,7 @@ const AdminDashboard = () => {
     // console.log(formData);
 
     try {
-      const res = await fetch("http://localhost:3000/admin/new-project", {
+      const res = await fetch("/admin/new-project", {
         method: "POST",
         body: formData,
         credentials: "include",

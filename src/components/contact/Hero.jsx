@@ -9,7 +9,6 @@ import {
   Instagram,
   MessageCircle,
   CheckCircle,
-  Sparkles,
 } from "lucide-react";
 import background from "../../assets/Contact-hero.mp4";
 import Button from "../common/Button";
@@ -30,8 +29,23 @@ const Hero = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbzmlP9Srtc2LRjZtmnNufg3y73aEhAhUJMVqlFGmpoRF4bVUTSIDSnI7a9vBzD8r2XSOA/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(formData),
+        },
+      );
+      const result = await res.json();
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
+
     console.log(formData);
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
@@ -55,7 +69,7 @@ const Hero = () => {
       icon: <MapPin className="w-5 h-5" />,
       title: "Location",
       value: "Uttar Pradesh, India",
-      link: "#",
+      link: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224357.4938642268!2d77.04417!3d28.527554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1234567890",
     },
   ];
 
@@ -74,9 +88,9 @@ const Hero = () => {
     },
     {
       icon: <Instagram className="w-5 h-5" />,
-      link: "#",
+      link: "https://www.instagram.com/shubham__singh.___",
       name: "Instagram",
-      username: "@shubham.dev",
+      username: "shubham__singh.___",
     },
     {
       icon: <MessageCircle className="w-5 h-5" />,
@@ -163,7 +177,7 @@ const Hero = () => {
                   </div>
                 )}
 
-                <div className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="block text-gray-200 font-semibold mb-2 text-sm">
                       Your Name <span className="text-red-500">*</span>
@@ -171,11 +185,11 @@ const Hero = () => {
                     <input
                       type="text"
                       name="name"
+                      required
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
                       className="w-full px-4 py-3 bg-zinc-900/50 border border-orange-600/30 focus:border-orange-500/50 rounded-md text-white placeholder-gray-500 outline-none transition-colors"
-                      required
                     />
                   </div>
 
@@ -225,13 +239,13 @@ const Hero = () => {
                   </div>
 
                   <button
-                    onClick={handleSubmit}
+                    type="submit"
                     className="w-full py-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold rounded-md transition-all hover:scale-105 shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
                     Send Message
                   </button>
-                </div>
+                </form>
               </div>
             </div>
 
@@ -318,9 +332,6 @@ const Hero = () => {
         {/* Google Map Section */}
         <div className="mt-16">
           <div className="inline-flex items-center gap-3 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-500 rounded-md flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-white" />
-            </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-black text-white">
                 Find Me Here
@@ -340,7 +351,6 @@ const Hero = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
           </div>
