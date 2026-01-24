@@ -28,7 +28,7 @@ const About = () => {
   ];
 
   return (
-    <section className="relative w-full pt-16 overflow-hidden">
+    <section className="relative w-full pt-16 pb-10 bg-zinc-950/30 overflow-hidden">
       {/* Animated Glow */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-2xl animate-pulse" />
       <div
@@ -38,34 +38,11 @@ const About = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="flex justify-center mb-12 sm:mb-16">
-          <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wider text-white">
-              ABOUT ME
-            </h2>
-            {/* Curved underline */}
-            <svg
-              className="absolute left-1/2 -bottom-3 sm:-bottom-4 -translate-x-1/2 w-32 sm:w-40 md:w-48"
-              width="150"
-              height="20"
-              viewBox="0 0 150 20"
-              fill="none"
-            >
-              <path
-                d="M5 10 C40 18, 110 2, 145 10"
-                stroke="url(#grad)"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="grad" x1="0" y1="0" x2="200" y2="0">
-                  <stop offset="0%" stopColor="#f59e0b" />
-                  <stop offset="50%" stopColor="#ea580c" />
-                  <stop offset="100%" stopColor="#f59e0b" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+        <div className="mb-12 sm:mb-16">
+          <h2 className="heading text-3xl md:text-4xl font-bold text-white uppercase tracking-wider ">
+            About Me
+          </h2>
+          <div className="h-1 w-24 bg-linear-to-r from-orange-500 to-orange-600 mt-3 rounded-full"></div>
         </div>
 
         {/* Main Content */}
@@ -97,7 +74,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                    <h3 className=" subheading text-xl sm:text-2xl font-bold text-white mb-2">
                       MERN Stack Developer
                     </h3>
                     <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
@@ -131,7 +108,7 @@ const About = () => {
                     <Goal className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:rotate-360 transition-transform duration-700 " />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+                    <h3 className="subheading text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                       My Development Style
                     </h3>
                     <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-400">
@@ -182,7 +159,7 @@ const About = () => {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-orange-500 to-amber-600 rounded-md flex items-center justify-center shadow-lg shadow-orange-500/30">
                     <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  <h3 className="subheading text-2xl sm:text-3xl font-bold text-white">
                     What I Do
                   </h3>
                 </div>
@@ -200,7 +177,7 @@ const About = () => {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
+                          <h4 className="subheading text-base sm:text-lg font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
                             {service.title}
                           </h4>
                           <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">

@@ -79,7 +79,7 @@ const ProjectCard = ({ project, index }) => {
         >
           {/* Project Title */}
           <div className="space-y-4">
-            <h3 className="text-3xl lg:text-4xl font-black bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h3 className="subheading text-3xl lg:text-4xl font-black bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               {project.projectName}
             </h3>
 
@@ -106,7 +106,7 @@ const ProjectCard = ({ project, index }) => {
           {/* Features */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <h4 className="text-white font-bold text-sm uppercase tracking-wide">
+              <h4 className="subheading text-white font-bold text-sm uppercase tracking-wide">
                 Key Features
               </h4>
             </div>
