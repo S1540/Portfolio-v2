@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Dot, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
+import { Dot, ChevronRight, ChevronLeft, Sparkles } from "lucide-react";
+
 import slider1 from "../../assets/projectAssets/Slider-1.jpg";
 import slider2 from "../../assets/projectAssets/Slider-2.png";
 import slider3 from "../../assets/projectAssets/Slider-3.jpg";
+
 import Button from "../common/Button";
 
 const Hero = () => {
@@ -11,7 +13,7 @@ const Hero = () => {
   const sliderData = [
     {
       image: slider1,
-      title: "E-Commerce ",
+      title: "E-Commerce Project",
       description:
         "Full-featured online shopping experience with cart and checkout",
       buttonText: "View Project",
@@ -31,85 +33,112 @@ const Hero = () => {
     },
   ];
 
-  // Auto play
+  // ✅ Auto Play (Same Logic)
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
     }, 3000);
+
     return () => clearInterval(interval);
   }, [currentIndex]);
 
+  // ✅ Next Slide
   const handleNext = () => {
-    setCurrentIndex((prev) => {
-      return prev === sliderData.length - 1 ? 0 : prev + 1;
-    });
+    setCurrentIndex((prev) => (prev === sliderData.length - 1 ? 0 : prev + 1));
   };
 
+  // ✅ Prev Slide
   const handlePrev = () => {
-    setCurrentIndex((prev) => {
-      return prev === 0 ? sliderData.length - 1 : prev - 1;
-    });
+    setCurrentIndex((prev) => (prev === 0 ? sliderData.length - 1 : prev - 1));
   };
 
   return (
-    <section>
-      <div className="relative">
-        <div className="relative w-full h-96 flex overflow-hidden">
-          {sliderData.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0  w-full h-96 transition-opacity duration-500 ease-in-out ${
-                index === currentIndex ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {/* Image */}
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black opacity-40"></div>
-              {/* Content */}
-              <div className="absolute left-0 right-0 top-1/2  flex flex-col items-center justify-center px-4 text-center backdrop-blur-[2px]">
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+    <section className="relative bg-zinc-900 overflow-hidden">
+      <div className="relative w-full h-[450px] overflow-hidden">
+        {/* Slides */}
+        {sliderData.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-zinc-900"></div>
+
+            {/* Content Box Left Aligned */}
+            <div className="absolute inset-0 flex items-center justify-start px-6 md:px-16">
+              <div className="max-w-xl">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-5 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-6 backdrop-blur-sm">
+                  <Sparkles className="w-4 h-4 text-orange-400" />
+                  <span className="text-orange-400 text-sm font-bold uppercase tracking-wide">
+                    Featured Project
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
                   {slide.title}
                 </h2>
-                <p className="text-lg text-gray-300 mb-6 max-w-2xl">
+
+                {/* Description */}
+                <p className="text-gray-300 text-lg leading-relaxed mb-8">
                   {slide.description}
                 </p>
+
+                {/* Button */}
                 <Button name={slide.buttonText} />
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
 
-        {/* Dots */}
-        <div className="flex justify-center">
-          {sliderData.map((_, index) => (
-            <Dot
-              onClick={() => setCurrentIndex(index)}
-              key={index}
-              size={35}
-              className={`cursor-pointer transition-colors ${
-                index === currentIndex ? "text-orange-500" : "text-gray-400"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Arrow Buttons */}
-        <div
-          className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-400 cursor-pointer hover:text-orange-500 active:scale-75 transition-all duration-300"
+        {/* Arrows btns */}
+        <button
           onClick={handlePrev}
+          className="absolute top-1/2 left-5 -translate-y-1/2 
+          w-12 h-12 flex items-center justify-center 
+          bg-zinc-800/60 border border-orange-500/20 
+          rounded-md text-gray-300 hover:text-orange-400 
+          hover:border-orange-500/50 hover:scale-110 
+          transition-all duration-300"
         >
-          <ChevronLeft size={40} />
-        </div>
-        <div
-          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-400 cursor-pointer hover:text-orange-500 active:scale-75 transition-all duration-300"
+          <ChevronLeft size={28} />
+        </button>
+
+        <button
           onClick={handleNext}
+          className="absolute top-1/2 right-5 -translate-y-1/2 
+          w-12 h-12 flex items-center justify-center 
+          bg-zinc-800/60 border border-orange-500/20 
+          rounded-md text-gray-300 hover:text-orange-400 
+          hover:border-orange-500/50 hover:scale-110 
+          transition-all duration-300"
         >
-          <ChevronRight size={40} />
-        </div>
+          <ChevronRight size={28} />
+        </button>
+      </div>
+
+      {/*Dots*/}
+      <div className="flex justify-center gap-2 py-6">
+        {sliderData.map((_, index) => (
+          <Dot
+            key={index}
+            size={35}
+            onClick={() => setCurrentIndex(index)}
+            className={`cursor-pointer transition-colors duration-300 ${
+              index === currentIndex
+                ? "text-orange-500"
+                : "text-gray-500 hover:text-orange-400"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
