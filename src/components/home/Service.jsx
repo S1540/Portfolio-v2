@@ -68,10 +68,10 @@ const Service = () => {
         </div>
         {/* button */}
 
-        <div className="flex flex-col gap-2 justify-center items-center h-full">
+        <div className="flex flex-col gap-2 justify-center items-center h-full px-4">
           <Button name="Hire Me" />
-          <h1 className="text-2xl md:text-3xl font-medium tracking-wider text-white">
-            I'M AVAILABLE FOR FREELANCE
+          <h1 className="text-lg md:text-3xl font-medium tracking-wider text-white py-4">
+            I'M AVAILABLE FOR FREELANCING
           </h1>
         </div>
       </div>

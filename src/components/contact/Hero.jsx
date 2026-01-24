@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import background from "../../assets/Contact-hero.mp4";
+import Button from "../common/Button";
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -108,19 +109,26 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-zinc-900"></div>
 
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
+        <div className="absolute inset-0 flex items-center justify-start px-6 md:px-16">
+          <div className="text-center sm:text-left px-4">
             <div className="inline-block px-5 py-2 bg-orange-600/20 backdrop-blur-sm rounded-full border border-orange-600/30 mb-6">
               <span className="text-orange-400 text-sm font-bold uppercase tracking-wider">
                 Get In Touch
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-4">
-              Let's Create
-              <span className="block bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-                Something Amazing
-              </span>
-            </h1>
+            <div>
+              <h1 className="text-5xl md:text-6xl font-black text-white pb-4">
+                Let's Create
+                <span className="block bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+                  Something Amazing
+                </span>
+              </h1>
+              <p className="text-gray-400 pb-4">
+                Contact for collaboration and project inquiries{" "}
+                <span>And Hiring Opportunities 🚀</span>
+              </p>
+              <Button name={"Contact"} />
+            </div>
           </div>
         </div>
       </div>
