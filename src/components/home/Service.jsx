@@ -8,7 +8,6 @@ import responsive from "../../assets/serviceAssets/Responsive.webp";
 import genAi from "../../assets/serviceAssets/gen-ai.png";
 import animation from "../../assets/serviceAssets/walking office man.json";
 import Button from "../common/Button";
-import { Link } from "react-router-dom";
 import resume from "../../assets/Resume3.0.pdf";
 
 const Service = () => {

@@ -6,6 +6,12 @@ const cors = require("cors");
 const path = require("path");
 const Panel = require("./models/panelSchema");
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 
 // Mongoose Connection
 mongoose
@@ -18,12 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//     credentials: true,
-//   }),
-// );
 app.use("/auth", require("./routes/loginRoute"));
 app.use("/admin", require("./routes/panelRoutes"));
 app.use("/ai-chatbot", require("./routes/chatRoutes"));
@@ -43,10 +43,10 @@ app.get("/projects", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "dist")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "dist")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "dist", "index.html"));
+// });
 
 // app.get("/", (req, res) => {
 //   res.send("Hello Server");

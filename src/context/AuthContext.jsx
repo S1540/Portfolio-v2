@@ -1,4 +1,3 @@
-import { AppWindowMacIcon } from "lucide-react";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
@@ -11,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("/auth/me", {
+        const res = await fetch("http://localhost:3000/auth/me", {
           method: "GET",
           credentials: "include",
         });
