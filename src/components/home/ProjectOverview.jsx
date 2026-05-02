@@ -12,7 +12,7 @@ const ProjectOverview = () => {
       Image: cozycabz,
       projectStatus: "Completed",
       liveLink: "https://cozycabz.com",
-      githubLink: "https://github.com/Unnity-Development-Agency/cozycab",
+      githubLink: "https://github.com/Unnity-Development-Agency/cozycabs",
       techStack: ["Next.js", "Mapbox API", "Authentication", "More++"],
       description:
         "A fully responsive cab booking platform featuring a modern UI, dynamic car listings, and real-time fare calculation with additional charges like tolls and distance-based pricing. Built with Next.js and Tailwind CSS, this project demonstrates clean component architecture, Firebase integration, and smooth navigation, delivering a seamless booking experience across mobile and desktop devices.",
@@ -31,8 +31,8 @@ const ProjectOverview = () => {
       Image: unnity,
       projectStatus: "Completed",
       techStack: ["Next.js", "Tailwind", "Node-Mailer", "More++"],
-      liveLink: "https://unnity.com",
-      githubLink: "https://github.com/Unnity-Development-Agency/unnity",
+      liveLink: "https://unnity.in",
+      githubLink: "https://github.com/Unnity-Development-Agency/e-marketing",
       description:
         "A fully responsive digital marketing agency website built with Next.js and Tailwind CSS, featuring a modern design and seamless user experience. The site includes dynamic content sections, smooth animations, and an integrated contact form powered by Node-Mailer for efficient lead generation. With a focus on clean code architecture and optimized performance, this project showcases a professional online presence for the agency while ensuring accessibility across all devices.",
       keyFeatures: [
