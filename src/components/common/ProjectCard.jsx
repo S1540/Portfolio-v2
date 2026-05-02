@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import frame from "../../assets/Laptop-frame.png";
+import frame from "../../assets/Laptop-Frame.png";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 
@@ -17,7 +17,7 @@ const ProjectCard = ({ project, index }) => {
     >
       {/* Background Glow Effect */}
       <div
-        className={` absolute inset-0 bg-linear-to-br from-amber-500/20 to-transparent w-full h-full ${animatedHeight ? "translate-y-0" : "translate-y-full"} transition-transform duration-500`}
+        className={` absolute inset-0 bg-linear-to-br from-amber-500/20 to-transparent w-full h-full ${animatedHeight ? "translate-y-0" : "translate-y-full"} transition-transform duration-400`}
       ></div>
 
       {/* Main Card */}
