@@ -83,7 +83,12 @@ const TechSkills = () => {
           <div className="hidden group lg:flex gap-9 items-center justify-center bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-b-md py-4 px-10 hover:border-orange-500/40 transition-all duration-300 ">
             <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-1 group-hover:opacity-100 transition-opacity" />
             {icons.map((icon) => (
-              <img key={icon.id} src={icon.icon} alt="" className="w-20 px-1" />
+              <img
+                key={icon.id}
+                src={icon.icon}
+                alt="alt"
+                className="w-20 px-1"
+              />
             ))}
           </div>
         </div>
