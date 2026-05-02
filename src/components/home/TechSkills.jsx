@@ -4,7 +4,7 @@ import SkillBufferBar from "../common/SkillBufferBar";
 import html from "../../assets/html.png";
 import css from "../../assets/css.png";
 import react from "../../assets/react.png";
-import javascript from "../../assets/javascript.png";
+import javascript from "../../assets/Javascript.png";
 import tailwind from "../../assets/tailwind.png";
 import next from "../../assets/nextjs.png";
 import node from "../../assets/Node.png";
@@ -81,7 +81,7 @@ const TechSkills = () => {
         </motion.div>
         <div>
           <div className="hidden group lg:flex gap-9 items-center justify-center bg-linear-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-orange-600/20 rounded-b-md py-4 px-10 hover:border-orange-500/40 transition-all duration-300 ">
-            <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 to-transparent rounded-md opacity-1 group-hover:opacity-100 transition-opacity" />
             {icons.map((icon) => (
               <img key={icon.id} src={icon.icon} alt="" className="w-20 px-1" />
             ))}
