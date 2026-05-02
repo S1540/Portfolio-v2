@@ -1,39 +1,46 @@
 import React from "react";
 import ProjectCard from "../common/ProjectCard";
-import myntra from "../../assets/projectAssets/MyntraFullPage.webp";
-import quizBattel from "../../assets/projectAssets/Quiz-battel.webp";
+import cozycabz from "../../assets/projectAssets/cozycabz.png";
+import unnity from "../../assets/projectAssets/unnity.png";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
 
 const ProjectOverview = () => {
   const projectData = [
     {
-      projectName: "Myntra Clone",
-      Image: myntra,
+      projectName: "CozyCabz Cab Booking Platform",
+      Image: cozycabz,
       projectStatus: "Completed",
-      techStack: ["React", "Tailwind", "Responsive"],
+      liveLink: "https://cozycabz.com",
+      githubLink: "https://github.com/Unnity-Development-Agency/cozycab",
+      techStack: ["Next.js", "Mapbox API", "Authentication", "More++"],
       description:
-        "A fully responsive e-commerce platform clone featuring modern UI design, product listings with advanced filtering, and smooth navigation. Built with React and Tailwind CSS, this project showcases clean component architecture, optimized performance, and pixel-perfect responsive layouts for seamless mobile-to-desktop experience.",
+        "A fully responsive cab booking platform featuring a modern UI, dynamic car listings, and real-time fare calculation with additional charges like tolls and distance-based pricing. Built with Next.js and Tailwind CSS, this project demonstrates clean component architecture, Firebase integration, and smooth navigation, delivering a seamless booking experience across mobile and desktop devices.",
       keyFeatures: [
-        "Dynamic product filtering and search functionality",
-        "Fully responsive grid layouts for all screen sizes",
-        "Reusable component-based architecture",
-        "Optimized performance and clean code structure",
+        "Dynamic fare calculation using distance, tolls, and real-time inputs",
+        "Map integration with Mapbox API for accurate routes and location handling",
+        "User authentication and booking history tracking with personalized accounts",
+        "Ride booking system with live data updates and status management",
+        "Clean, reusable component-based architecture with optimized performance",
+        "Admin dashboard with analytics graphs for bookings and revenue insights",
+        "Dynamic price management and ride status control via admin panel",
       ],
     },
     {
-      projectName: "Quiz-Battel",
-      Image: quizBattel,
-      projectStatus: "Ongoing",
-      techStack: ["React", "Tailwind", "Express", "MongoDB"],
+      projectName: "Unnity Degital Marketing Agency",
+      Image: unnity,
+      projectStatus: "Completed",
+      techStack: ["Next.js", "Tailwind", "Node-Mailer", "More++"],
+      liveLink: "https://unnity.com",
+      githubLink: "https://github.com/Unnity-Development-Agency/unnity",
       description:
-        "Quiz Battle is a full-stack MERN (MongoDB, Express, React, Node.js) web application designed to provide an engaging and competitive quiz experience. The platform allows users to test their knowledge across multiple categories, track their performance, earn rewards, and create custom quizzes. Built with modern web technologies, it features a sleek dark-themed UI, real-time score tracking, and premium features for enhanced user experience.",
+        "A fully responsive digital marketing agency website built with Next.js and Tailwind CSS, featuring a modern design and seamless user experience. The site includes dynamic content sections, smooth animations, and an integrated contact form powered by Node-Mailer for efficient lead generation. With a focus on clean code architecture and optimized performance, this project showcases a professional online presence for the agency while ensuring accessibility across all devices.",
       keyFeatures: [
-        "JWT-based authentication with protected routes.",
-        "User profiles with performance tracking and leaderboard.",
-        "Timed quiz system with instant feedback and scoring.",
-        "Custom quiz creation with premium rewards.",
-        "Responsive dark-themed UI built with Tailwind CSS.",
+        "Dynamic content sections for services, portfolio, and client testimonials.",
+        "Smooth animations and transitions for an engaging user experience.",
+        "Integrated contact form with Node-Mailer for efficient lead generation.",
+        "Clean code architecture with reusable components and optimized performance.",
+        "Fully responsive design ensuring accessibility across all devices.",
       ],
     },
   ];
